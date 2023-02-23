@@ -24,6 +24,7 @@ public class StorageService {
 
     public byte[] downloadImage(String fileName) {
         Optional<ImageData> dbImageData = repository.findByName(fileName);
-        return ImageUtils.decompressImage(dbImageData.get().getImageData());
+        byte[] images=ImageUtils.decompressImage(dbImageData.get().getImageData());
+        return images;
     }
 }
